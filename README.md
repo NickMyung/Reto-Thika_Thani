@@ -25,7 +25,8 @@
     * Obtiene resultado como combinacion de Categoria, Almacen y Nombre
     * Reduce la cantidad de producto
     * De no haber en stock, mostrara mensaje
-Se puede crear productos iguales en diferentes almacenes, modificar productos.json
+    
+**Se puede crear productos iguales en diferentes almacenes, modificar productos.json**
 
 ## Dockerfile:
  * Archivo para correr en Google CLoud Plataform
