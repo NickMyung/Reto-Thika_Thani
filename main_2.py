@@ -42,17 +42,18 @@ def lectura_productos(filtros):
 
     # Filtro
     for p in ps:
-        if (p['categ_id'][1] == ("All / "+filtros[0]["Categoria"]) or filtros[0]["Categoria"] == ""):
+        if (p['categ_id'][1] == ("All / "+filtros[0]["Categoria"]) or filtros[0]["Categoria"] == ""): # Puede ignorar el campo de Categoria
             print(p['name'])
             a = models.execute_kw(db, uid, password,
             'stock.move', 'search_read',
             [[['product_id','=',p['name']]]],
             {'fields': ['location_dest_id']})
-
+	    
+	    # Ubicacion del almacen
             print(a[-1]['location_dest_id'][1])
             p["warehouse_id"] = a[-1]['location_dest_id'][1]
             
-            if (p["warehouse_id"] == almacenes_id[filtros[0]["Almacen"]] or almacenes_id[filtros[0]["Almacen"]] == ""):
+            if (p["warehouse_id"] == almacenes_id[filtros[0]["Almacen"]] or almacenes_id[filtros[0]["Almacen"]] == ""): # Puede ignorar el campo de Almacen
 
                 # Actualizando la cantidad de Producto 
                 product_id = models.execute(db,uid,password,'product.product','search',[('name','=',p["name"] )])
@@ -83,18 +84,19 @@ def seleccion_productos(pedidos):
 
     # Incrementa el Almacen a la respuesta
     for p in ps:
-        if (p['categ_id'][1] == ("All / "+pedidos[0]["Categoria"])):
+        if (p['categ_id'][1] == ("All / "+pedidos[0]["Categoria"])): # Categoria
             print(p['name'])
             a = models.execute_kw(db, uid, password,
             'stock.move', 'search_read',
             [[['product_id','=',p['name']]]],
             {'fields': ['location_dest_id']})
-
+	    
+	    # Ubicacion del almacen
             print(a[-1]['location_dest_id'][1])
             p["warehouse_id"] = a[-1]['location_dest_id'][1]
 
-            if (p["warehouse_id"] == almacenes_id[pedidos[0]["Almacen"]]):
-                if (p["name"] == pedidos[0]["Nombre"]):
+            if (p["warehouse_id"] == almacenes_id[pedidos[0]["Almacen"]]): # Almacen
+                if (p["name"] == pedidos[0]["Nombre"]): # Nombre
 
                     # Obteniendo producto y reduciendo cantidad 
                     product_id = models.execute(db,uid,password,'product.product','search',[('name','=',p["name"] )])
