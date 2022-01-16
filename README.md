@@ -15,5 +15,5 @@ Post -> Body -> Binary -> productos.json
 
 ## main_2:
 
-Post -> Body -> Binary -> filtro_1.json, filtro_2.json, filtro_3.json
-Get - > Body -> Binary -> pedido.json
+1. Post -> Body -> Binary -> filtro_1.json, filtro_2.json, filtro_3.json
+2. Get - > Body -> Binary -> pedido.json
