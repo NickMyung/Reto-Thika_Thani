@@ -93,7 +93,8 @@ def lectura_productos():
         'stock.move', 'search_read',
         [[['product_id','=',p['name']]]],
         {'fields': ['location_dest_id']})
-
+	
+	# Ubicacion del almacen
         print(a[-1]['location_dest_id'][1])
         p["warehouse_id"] = a[-1]['location_dest_id'][1]
 
