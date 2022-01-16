@@ -12,8 +12,20 @@
 ## main_1:
 
 Post -> Body -> Binary -> productos.json
+Get  -> Actualiza la cantidad actual de productos, se obtiene el almacen 
 
 ## main_2:
 
 1. Post -> Body -> Binary -> filtro_1.json, filtro_2.json, filtro_3.json
-2. Get - > Body -> Binary -> pedido.json
+    * Al no encontrarse un producto en stock, no lo mostrara como resultado
+    * Los resultados de los filtros estan en combinacion a Categoria y Almacen 
+    * Actualiza la cantidad actual de productos
+    * Se obtiene el almacen del producto
+3. Get - > Body -> Binary -> pedido.json
+    * Obtiene resultado como combinacion de Categoria, Almacen y Nombre
+    * Reduce la cantidad de producto
+    * De no haber en stock, mostrara mensaje
+## Dockerfile:
+ * Archivo para correr en Google CLoud Plataform
+
+Se puede crear productos iguales en diferentes almacenes, modificar productos.json
