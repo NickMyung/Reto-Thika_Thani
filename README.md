@@ -11,8 +11,8 @@
 
 ## main_1:
 
-Post -> Body -> Binary -> productos.json
-Get  -> Actualiza la cantidad actual de productos, se obtiene el almacen 
+1. Post -> Body -> Binary -> productos.json
+2. Get  -> Actualiza la cantidad actual de productos, se obtiene el almacen 
 
 ## main_2:
 
